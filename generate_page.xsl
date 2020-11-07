@@ -1,7 +1,7 @@
 <xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
-	<xsl:template match="/">
-		<html>
+<xsl:template match="/">
+	<html>
 	
 		<head>
 			<title>Climate Processing</title>
@@ -9,6 +9,12 @@
 
 		</head>
 
+	<xsl:if test="count(./results/error)=1">
+		<body>
+			<h1>Error: <xsl:value-of select="./results/error"/></h1>
+		</body>
+	</xsl:if>
+	<xsl:if test="count(./results/error)=0">
 		<body>
 			<h2>Weather status on <xsl:value-of select="count(//city)"/> cities around the world</h2>
 			<xsl:for-each select="./results/country">
@@ -19,9 +25,10 @@
 				<br/>
 			</xsl:for-each>
 		</body>
+	</xsl:if>	
+	</html>
 
-		</html>
-	</xsl:template>
+</xsl:template>
 
 
 
