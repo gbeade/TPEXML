@@ -1,4 +1,5 @@
-﻿h1 {
+h1 {
+  	line-height: 1.6;
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: xx-large;
 	font-style: italic;
@@ -8,16 +9,18 @@
 }
 
 h2 {
+  	line-height: 3;
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: x-large;
 	font-weight: bold;
-	color: #808080;
+	color: #000000;
 	text-align: center;
 }
 
 h3,p {
+  	line-height: 4;
 	font-family: Arial, Helvetica, sans-serif;
-	font-size: medium;
+	font-size: large;
 	color: #000000;
 	font-weight: normal;
 	font-style: normal;
@@ -25,7 +28,6 @@ h3,p {
 }
 
 p{
-	text-align: justify;
 	margin: 20px;}
 h3{
 	text-align: center;
@@ -38,6 +40,7 @@ table,th {
 }
 
 td  {
+	text-align: center;
 	border: 0 px solid #000000;
 }
 table {
