@@ -15,9 +15,9 @@ return <country alpha-2="{$var/@alpha-2}">
             where $var1/city/country=$var/@alpha-2
             return <city> 
                     <name>{$var1/city/@name/fn:string()}</name>
-                    <temperature unit="{$var1/temperature/@unit}">{$var1/temperature/@value/fn:string()}</temperature>
-                    <feels_like unit="{$var1/feels_like/@unit}">{$var1/feels_like/@value/fn:string()}</feels_like>
-                    <humidity unit="{$var1/humidity/@unit}">{$var1/humidity/@value/fn:string()}</humidity>
+                    <temperature unit="{$var1/temperature/@unit}">{$var1/temperature/@value/fn:number()}</temperature>
+                    <feels_like unit="{$var1/feels_like/@unit}">{$var1/feels_like/@value/fn:number()}</feels_like>
+                    <humidity unit="{$var1/humidity/@unit}">{$var1/humidity/@value/fn:number()}</humidity>
                     <pressure unit="{$var1/pressure/@unit}">{fn:round($var1/temperature/@value/fn:number())}</pressure>
                     <clouds>{$var1/clouds/@name/fn:string()}</clouds>
                     <weather icon="{$var1/weather/@icon}">{$var1/weather/@value/fn:string()}</weather>
