@@ -1,15 +1,16 @@
-declare namespace cat = "http://www.iro.umontreal.ca/lapalme/wine-catalog";
-declare option saxon:output "method=xml";
-declare option saxon:output "indent=yes";
 
 <results>{
 
+
+if( count( doc("data.xml")/ClientError ) > 0 ) then (
+	<error>{doc("data.xml")/ClientError/message/fn:string()}</error>
+)else (
 for $var in doc("countries.xml")/countries/country
-    where $var/@alpha-2=doc("data.xml")/cities/list/item/city/country 
-    order by $var/@name
-    return <country alpha-2="{$var/@alpha-2}">
-        <name>{$var/@name/fn:string()}</name>
-        <cities>{
+where $var/@alpha-2=doc("data.xml")/cities/list/item/city/country 
+order by $var/@name
+return <country alpha-2="{$var/@alpha-2}">
+       <name>{$var/@name/fn:string()}</name>
+       <cities>{
             for $var1 in doc("data.xml")/cities/list/item
             where $var1/city/country=$var/@alpha-2
             return <city> 
@@ -22,8 +23,9 @@ for $var in doc("countries.xml")/countries/country
                     <weather icon="{$var1/weather/@icon}">{$var1/weather/@value/fn:string()}</weather>
                 </city>
         }</cities>
-        </country>
-
+        </country> 
+)
 }</results> 
+
 
 
