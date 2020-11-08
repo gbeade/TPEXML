@@ -18,7 +18,7 @@ return <country alpha-2="{$var/@alpha-2}">
                     <temperature unit="{$var1/temperature/@unit}">{$var1/temperature/@value/fn:string()}</temperature>
                     <feels_like unit="{$var1/feels_like/@unit}">{$var1/feels_like/@value/fn:string()}</feels_like>
                     <humidity unit="{$var1/humidity/@unit}">{$var1/humidity/@value/fn:string()}</humidity>
-                    <pressure unit="{$var1/pressure/@unit}">{$var1/temperature/@value/fn:string()}</pressure>
+                    <pressure unit="{$var1/pressure/@unit}">{fn:round($var1/temperature/@value/fn:number())}</pressure>
                     <clouds>{$var1/clouds/@name/fn:string()}</clouds>
                     <weather icon="{$var1/weather/@icon}">{$var1/weather/@value/fn:string()}</weather>
                 </city>
